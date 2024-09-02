@@ -9,7 +9,13 @@ const loadPhon = async (searchPhone) => {
 
 const displayPhones = (phones) => {
   const phoneContainer = document.getElementById("phone-container");
-  phoneContainer.textContent = ""
+  phoneContainer.textContent = "";
+  if(phones.length > 12 ){
+    document.getElementById("show-all").classList.remove("hidden")
+  }else{
+    document.getElementById("show-all").classList.add("hidden")
+  }
+  phones = phones.slice(0, 12);
   phones.forEach((phone) => {
     const phoneDiv = document.createElement("div");
     phoneDiv.classList.add("card", "bg-base-100", "shadow-xl");
@@ -36,7 +42,7 @@ const handleSearch = () => {
   const searchFild = document.getElementById("search-text");
   const searchText = searchFild.value;
   console.log(searchText);
-  loadPhon(searchText)
+  loadPhon(searchText);
 };
 
 loadPhon();
