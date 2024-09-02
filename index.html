@@ -13,13 +13,23 @@
   </head>
   <body>
     <header>
-        <h3 class="text-5xl">Hunting phone</h3>
+      <h3 class="text-5xl">Hunting phone</h3>
     </header>
     <main>
+      <section class="text-center my-5">
+        <input
+        id="search-text"
+        type="text"
+        placeholder="Search here"
+        class="input input-bordered input-primary w-full max-w-xs"
+      />
+      <button onclick="handleSearch()" class="btn btn-secondary">Search</button>
+      </section>
       <section>
-        <div id="phone-container" class="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-
-        </div>
+        <div
+          id="phone-container"
+          class="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+        ></div>
       </section>
     </main>
     <footer></footer>
