@@ -10,12 +10,12 @@ const loadPhon = async (searchPhone) => {
 const displayPhones = (phones) => {
   const phoneContainer = document.getElementById("phone-container");
   // console.log(phones);
-  
+
   phoneContainer.textContent = "";
-  if(phones.length > 12 ){
-    document.getElementById("show-all").classList.remove("hidden")
-  }else{
-    document.getElementById("show-all").classList.add("hidden")
+  if (phones.length > 12) {
+    document.getElementById("show-all").classList.remove("hidden");
+  } else {
+    document.getElementById("show-all").classList.add("hidden");
   }
   phones = phones.slice(0, 12);
   phones.forEach((phone) => {
@@ -38,34 +38,33 @@ const displayPhones = (phones) => {
     `;
     phoneContainer.appendChild(phoneDiv);
   });
-  handleLoadingSpinner(false)
+  handleLoadingSpinner(false);
 };
 
-const handleShowDetail = async (id)=>{
-  console.log("show detail" , id);
-  const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`)
-  const data = await res.json();
-  console.log(data);
-  
-  
-  
-}
-
 const handleSearch = () => {
-  handleLoadingSpinner(true)
+  handleLoadingSpinner(true);
   const searchFild = document.getElementById("search-text");
   const searchText = searchFild.value;
   // console.log(searchText);
   loadPhon(searchText);
 };
 
-const handleLoadingSpinner = (isLoading)=>{
-  const loadingSpinner = document.getElementById("loading-spinner-container")
-  if(isLoading){
-    loadingSpinner.classList.remove("hidden")
-  }else{
-    loadingSpinner.classList.add("hidden")
+const handleShowDetail = async (id) => {
+  console.log("show detail", id);
+  const res = await fetch(
+    `https://openapi.programming-hero.com/api/phone/${id}`
+  );
+  const data = await res.json();
+  console.log(data);
+};
+
+const handleLoadingSpinner = (isLoading) => {
+  const loadingSpinner = document.getElementById("loading-spinner-container");
+  if (isLoading) {
+    loadingSpinner.classList.remove("hidden");
+  } else {
+    loadingSpinner.classList.add("hidden");
   }
-}
+};
 
 loadPhon();
